@@ -5,11 +5,12 @@ $('.start_button').click(function moveBlock(){
         scrollTop: $('h2').offset().top
     }, 1000);
     console.log('scroll')
-}) 
+})
 
 // CARROUSEL :
+new Carousel();
 
-var $carousel = $('.carousel_img')
+/*var $carousel = $('.carousel_img')
     $img = $('.carousel_img img')
     indexImg = $img.length - 1
     i = 0,
@@ -25,10 +26,10 @@ $(document).keydown(function(event){
     }
     });
     console.log('touche droite')
-    
+
 function nextImg(){
     console.log('click_right_button')
-    i++; 
+    i++;
     console.log('incrementation')
     if(i <= indexImg){
         $img.css('display', 'none');
@@ -58,14 +59,14 @@ function prevImg(){
     }
     else{
         i = 0;
-    }    
+    }
 };
 
 function slideImg(){
     setTimeout(function()
-    {           
+    {
         if(i < indexImg){
-        i++; 
+        i++;
         }
          else{
         i = 0;
@@ -76,13 +77,13 @@ function slideImg(){
     $currentImg.css('display', 'block');
 
     slideImg();
-    }, 5000); 
+    }, 5000);
 }
 
-slideImg(); 
+slideImg();
 
 function stopImg(){
     clearTimeout
 }
 
-$('.fa-pause-circle').click(stopImg)
+$('.fa-pause-circle').click(stopImg)*/
