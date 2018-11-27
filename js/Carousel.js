@@ -30,14 +30,19 @@ class Carousel {
     });
 
     $('.fa-play-circle').on('click', () => {
-      this.intervalID = setInterval(() => {
-        this.renderNextImage();
-      }, 2000)
+      this.startCarousel();
     });
 
     $('.fa-pause-circle').on('click', () => {
       clearInterval(this.intervalID);
     });
+  }
+
+  startCarousel(){
+    clearInterval(this.intervalID);
+    this.intervalID = setInterval(() => {
+      this.renderNextImage();
+    }, 2000);
   }
 
   renderNextImage() {

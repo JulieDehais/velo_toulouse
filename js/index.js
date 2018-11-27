@@ -8,4 +8,5 @@ $('.start_button').click(function moveBlock(){
 })
 
 // CARROUSEL :
-new Carousel();
+const carousel = new Carousel();
+carousel.startCarousel();
