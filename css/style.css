@@ -1,19 +1,19 @@
 @font-face
 {
 	font-family:"PoppinsRegular";
-	src:url(fonts/poppins/Poppins-Regular.ttf);
+	src:url(../fonts/poppins/Poppins-Regular.ttf);
 }
 
 @font-face
 {
 	font-family:"PoppinsMedium";
-	src:url(fonts/poppins/Poppins-Medium.ttf);
+	src:url(../fonts/poppins/Poppins-Medium.ttf);
 }
 
 @font-face
 {
 	font-family:"PoppinsLight";
-	src:url(fonts/poppins/Poppins-Thin.ttf);
+	src:url(../fonts/poppins/Poppins-Thin.ttf);
 }
 
 body
@@ -22,9 +22,11 @@ body
     margin: 0 ;
 }
 
+/* ACCUEIL */
+
 .home_arrival
 {
-    background:url(images/accueil_reservation_velos_toulouse_bg.jpg) no-repeat center;
+    background:url(../images/accueil_reservation_velos_toulouse_bg.jpg) no-repeat center;
     background-size: cover;
     min-height: 100vh;
     padding-bottom: 80px;
@@ -32,7 +34,7 @@ body
     width: 100%
 }
 
-.fa-bicycle, h1
+h1 .fa-bicycle, h1
 {
     color: white;
     display: inline-block;
@@ -66,7 +68,7 @@ h1
     width: 300px;
 }
 
-.start_button:hover
+.start_button:hover, .resa-bouton a:hover
 {
     animation: button-colors 4s infinite;
 }
@@ -82,7 +84,7 @@ h1
 
 h2
 {
-    color: rgb(49, 37, 65);
+    color: #312541;
     font-size: 32px;
     margin: auto;
     margin-bottom: 80px;
@@ -177,4 +179,83 @@ h3
 {
     cursor: pointer;
 
+}
+
+#mapid
+{
+    border: 4.5px solid #3c2e4e;
+    height: 500px;
+    margin: auto;
+    width: 800px;
+}
+
+.infos-station
+{
+    background-color: #3c2f4ed8;
+    color: white;
+    font-size: 22px;
+    line-height: 50px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 32px;
+    width: 600px;
+}
+
+.infos-station:hover
+{
+    font-size: 26px;
+    line-height: 52px;
+    width: 630px;
+}
+
+.titre-infos-station
+{
+    text-align: center;
+}
+
+.propriete-station:hover
+{
+    background-color: #342c41;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+
+.infos-client
+{
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    width: 600px;
+    
+}
+
+.infos-station .infos-client input
+{
+    background-color: #a39ab1;
+    border: 0px;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.resa-bouton a
+{
+    align-items: center;
+    background-color: #312541ec;
+    border-radius: 50px;
+    color: white;
+    display: flex;
+    font-size: 24px;
+    height: 50px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 25px;
+    text-decoration: none;
+    width: 200px;
+}
+
+.infos-station, .resa-bouton a, #mapid, .carousel img
+{
+    
+    box-shadow: 2px 1px 13px rgb(155, 155, 155);
 }
