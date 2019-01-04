@@ -11,4 +11,3 @@ const carousel = new Carousel();
 carousel.startCarousel();
 
 // MAP :
-const map = new Map();

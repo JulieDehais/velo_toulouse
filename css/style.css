@@ -1,3 +1,5 @@
+/* ------------------------ FONTFACE ---------------------- */
+
 @font-face
 {
 	font-family:"PoppinsRegular";
@@ -16,13 +18,18 @@
 	src:url(../fonts/poppins/Poppins-Thin.ttf);
 }
 
+/* ---------------------- ALL SITE ----------------- */
+
 body
 {
+    background: url("../images/bg1.jpg") no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
     font-family: PoppinsRegular;
     margin: 0 ;
 }
 
-/* ACCUEIL */
+/* --------------------- ACCUEIL -------------------------*/
 
 .home_arrival
 {
@@ -82,6 +89,8 @@ h1
     100% {background-color: rgb(255, 255, 255); color: rgb(69, 49, 102);}
 }
 
+/* ---------------------------- DESIGN TITRES (ETAPES) ----------------------------- */
+
 h2
 {
     color: #312541;
@@ -129,6 +138,8 @@ h3
     padding-left: 80px;
     padding-right: 80px;
 }
+
+/* ----------------------- CAROUSEL --------------------*/
 
 .carousel ul li
 {
@@ -181,6 +192,8 @@ h3
 
 }
 
+/* --------------------------- MAP & INFOS STATIONS --------------------------- */
+
 #mapid
 {
     border: 4.5px solid #3c2e4e;
@@ -208,9 +221,24 @@ h3
     width: 630px;
 }
 
+.infos-station:hover .propriete-selectionnee
+{
+    font-size: 26px;
+}
+
 .titre-infos-station
 {
     text-align: center;
+}
+
+.propriete-station
+{
+    display: flex;
+}
+
+.propriete-station i
+{
+    padding: 12px 10px;
 }
 
 .propriete-station:hover
@@ -221,18 +249,24 @@ h3
     padding-left: 15px;
 }
 
+.station-selectionnee
+{
+    color: rgb(226, 228, 228);
+    font-size: 20px;
+    margin-left: 30px;
+}
+
 .infos-client
 {
     margin: auto;
     margin-top: 30px;
     text-align: center;
     width: 600px;
-    
 }
 
 .infos-station .infos-client input
 {
-    background-color: #a39ab1;
+    background-color: #c9c5cf;
     border: 0px;
     font-size: 18px;
     padding: 8px;
@@ -258,4 +292,44 @@ h3
 {
     
     box-shadow: 2px 1px 13px rgb(155, 155, 155);
+}
+
+/* ------------------------------ CANVAS ------------------------------ */
+
+#canvas {
+	border-radius: 3px; 
+	margin: 0 auto 20px auto; 
+	display: block; 
+	background: white; 
+	cursor: crosshair
+}
+
+.signature
+{
+    background-color: #574b68a8;
+    box-shadow: 2px 4px 19px rgb(153, 153, 153);
+    color: white;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    text-align: center;
+    width: 400px;
+}
+
+#reset, #signature-validation
+{
+    background-color: white;
+    border-width: 0 !important;
+    border-radius: 10px;
+    color: #423652;
+    font-family: PoppinsRegular;
+    margin-bottom: 7px;
+    padding: 2px 5px 2px 5px;
+}
+
+#signature-validation
+{
+    background-color: #554a66;
+    color: white;
+    width: 90px;
 }

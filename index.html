@@ -5,7 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 		<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-		
+		<link rel="stylesheet" type="text/css" href="css/lib/MarkerCluster.Default.css">
+		<link rel="stylesheet" type="text/css" href="css/lib/MarkerCluster.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta charset="utf-8">
 
@@ -69,30 +70,40 @@
 		<div id="mapid"></div>
 
 		<!-- INFORMATIONS STATION SELECTIONNEE -->
-
 		<div class="infos-station">
 			<div class="titre-infos-station">Détails de la station</div>
-			<div class="propriete-station"><i class="fas fa-lock"></i> Statut<div class="statut-station"></div></div>
-			<div class="propriete-station"><i class="fas fa-search"></i> Nom <div class="nom-station"></div></div>
-			<div class="propriete-station"><i class="fas fa-map-marked-alt"></i> Adresse <div class="adresse-station"></div></div>
-			<div class="propriete-station"><i class="fas fa-bicycle"></i> Vélos disponibles <div class="velos-station"></div></div>
+			<div class="propriete-station"><i class="fas fa-lock"></i> Statut<div class="station-selectionnee statut-station">Aucune station sélectionnée</div></div>
+			<div class="propriete-station"><i class="fas fa-search"></i> Nom <div class="station-selectionnee nom-station">Aucune station sélectionnée</div></div>
+			<div class="propriete-station"><i class="fas fa-map-marked-alt"></i> Adresse <div class="station-selectionnee adresse-station">Aucune station sélectionnée</div></div>
+			<div class="propriete-station"><i class="fas fa-bicycle"></i> Vélos disponibles <div class="station-selectionnee velos-station">Aucune station sélectionnée</div></div>
 			<div class="infos-client">
 				<input type="text" placeholder="Votre prénom">
 				<input type="text" placeholder="Votre nom">
 			</div>
 		</div>
 		<div class="resa-bouton">
-			<a href="">Réserver</a>
+			<a href="" class="reserver"> Réserver</a>
+		</div>
+
+		<!-- SIGNATURE PAD (CANVA) -->
+		<div class="signature">
+			<h4>Signature <i class="fas fa-pencil-alt"></i></h4>
+			<canvas id="canvas" width="200" height="100"></canvas>
+			<input type="reset" id="reset" value="Réinitialiser"/>
+		</br>
+			<input type="button" id="signature-validation" value="Valider"/>
 		</div>
 
 		<!-- INFORMATIONS RESERVATION EFFECTUEE -->
 		<h3><div class="numerotation">3</div><div class="etape">Je vérifie les informations ci -dessous :</div></h3>
-
+		
 		<!-- JAVASCRIPT -->
+		<script src="js/lib/leaflet.markercluster.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="js/ajax.js" ></script>
+		<script src="js/ajax.js"></script>
 		<script src="js/carousel.js" ></script>
-		<script src="js/index.js" ></script>
-		<script src="js/map.js" ></script>	
+		<script src="js/index.js"></script>
+		<script src="js/map.js"></script>
+		<script src="js/canva.js"></script>			
 	</body>
 </html>
