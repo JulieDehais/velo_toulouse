@@ -46,7 +46,7 @@ h1 .fa-bicycle, h1
     color: white;
     display: inline-block;
     font-size: 40px;
-    margin-top: 160px;
+    margin-top: 200px;
 }
 
 h1
@@ -75,7 +75,7 @@ h1
     width: 300px;
 }
 
-.start_button:hover, .resa-bouton a:hover
+.start_button:hover, .resa-bouton p:hover
 {
     animation: button-colors 4s infinite;
 }
@@ -141,6 +141,11 @@ h3
 
 /* ----------------------- CAROUSEL --------------------*/
 
+.carousel
+{
+    width: 100%;
+}
+
 .carousel ul li
 {
     left:-75px;
@@ -151,10 +156,18 @@ h3
 
 .carousel_img
 {
-    position:relative;
+    
     height:200px;
-    width:700px;
     margin:auto;
+    position:relative;
+    width:700px;
+}
+
+.carousel_img img
+{
+    margin: auto !important;
+    margin-left: 5% !important;
+    width: 100% !important;
 }
 
 .button_navigation
@@ -174,7 +187,7 @@ h3
     display: flex;
     justify-content: space-between;
     margin: auto;
-    width: 1100px;
+    width: 1000px;
 }
 
 .pause-start
@@ -201,6 +214,64 @@ h3
     margin: auto;
     width: 800px;
 }
+
+.legendeCarte
+{
+    background-color: #423652;
+    box-shadow: 3px 3px 6px grey;
+    color: white;
+    font-size: 14px;
+    margin: auto;
+    margin-top: -135px;
+    padding: 5px;
+    width: 250px;
+}
+
+.legendeCarte img
+{
+    height: 33px;
+    margin: 6px 8px 6px 8px;
+    width: 20px;
+}
+
+.legendeGreenMarker, .legendeRedMarker
+{
+    display: flex;
+    margin: 10px;
+}
+
+.logoLegende
+{
+    background-color: #423652;
+    box-shadow: 3px 3px 6px grey;
+    color: white;
+    cursor: pointer;
+    margin: auto;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    text-align: center;
+    width: 30px;
+}
+
+.allLegend
+{
+    margin: auto;
+    width: 250px;
+}
+
+.allLegend:hover
+{
+    animation: movingBlock 4s;
+}
+
+@keyframes movingBlock 
+{
+    0% {margin-top: 0px;}
+    20% {margin-top: 135px;}
+    80% {margin-top: 135px;}
+    100% {margin-top: 0px;}
+}
+
 
 .infos-station
 {
@@ -272,12 +343,13 @@ h3
     padding: 8px;
 }
 
-.resa-bouton a
+.resa-bouton p
 {
     align-items: center;
     background-color: #312541ec;
     border-radius: 50px;
     color: white;
+    cursor: pointer;
     display: flex;
     font-size: 24px;
     height: 50px;
@@ -292,6 +364,21 @@ h3
 {
     
     box-shadow: 2px 1px 13px rgb(155, 155, 155);
+}
+
+/* ------------------------------ MESSAGE ERREUR RESERVATION VELO ------------------------ */
+
+.errorMessage
+{
+    background-color: #433952d2;
+    box-shadow: 4px 2px 7px rgb(97, 97, 97);
+    color: white;
+    font-size: 21px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    width: 400px;
 }
 
 /* ------------------------------ CANVAS ------------------------------ */
@@ -333,3 +420,272 @@ h3
     color: white;
     width: 90px;
 }
+
+/* --------------------------- INFORMATIONS DE LA RESERVATION EFFECTUEE ----------------------------------- */
+
+.infos-reservation, .no-reservation
+{
+    background-color: #564c64b9;
+    box-shadow: 2px 4px 19px rgb(153, 153, 153);
+    color: white;
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 200px;
+    padding: 40px;
+    width: 400px;
+}
+
+.no-reservation
+{
+    text-align: center;
+}
+
+.fa-clock, .fa-check-circle
+{
+    margin: 7px;
+}
+
+.remerciements
+{
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.stationBooked
+{
+    font-style: italic;
+    margin: auto;
+    margin-left: 40px;
+}
+
+.par 
+{
+    margin-left: 40px;
+}
+
+.userName
+{
+    font-style: italic;
+    margin: 0;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 80px;
+}
+
+/* ------------------------------------ MEDIA QUERIES --------------------------------------------- */
+
+/*---------- TABLETTES ---------*/
+@media (max-width: 1024px) 
+{
+    /* TITRES */
+    h3 .numerotation
+    {
+        font-size: 28px;
+        margin: 20px;
+        margin-left: 10%;
+        padding: 6px 22px 6px 22px;
+        width: 12px;
+    }
+
+    h3
+    {
+        font-size: 20px;
+    }
+
+    .etape
+    {
+        height: 53px;
+        margin-left: -60px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    /* CAROUSEL */
+        .carousel_img
+    {
+        margin: auto !important;
+        width: 400px !important;
+    }
+
+    .carousel_img img
+    {
+        width: 530px !important;
+    }
+
+    .carousel_navigation
+    {
+        margin: auto !important;
+        margin-top: -40px !important;
+        width: 700px !important;
+    }
+
+    .pause-start
+    {
+        margin-top: 140px !important;
+        font-size: 25px;
+        width: 80px;
+    }
+
+    .button_navigation {
+        font-size: 35px;
+        padding: 6px;
+        width: 50px;
+    }
+
+    /* MAP */
+    #mapid
+    {
+        height: 300px !important;
+        width: 600px !important;
+    }
+}
+
+/*-------- SMARTPHONES -------*/
+
+@media (max-width: 768px) 
+{
+    /* ACCUEIL */
+    h1 .fa-bicycle, h1
+    {
+        font-size: 23px;
+        margin-top: 30%;
+    }
+
+    .start_button
+    {
+        font-size: 13px;
+        height: 32px;
+        margin-top: 70px;
+        padding: 7px;
+        width: 200px;
+    }
+
+    /* TITRES */
+    h2
+    {
+        font-size: 18px;
+    }
+
+    .etape
+    {
+        padding: 4px 20px 4px 70px;
+    }
+
+    h3
+    {
+        font-size: 16px;
+    }
+
+    /* CAROUSEL */
+    
+    .carousel_img img
+    {
+        margin-left: 75% !important;
+        width: 220px !important;
+    }
+
+    .carousel_navigation
+    {
+        margin: auto !important;
+        margin-top: -150px !important;
+        width: 310px !important;
+    }
+
+    .pause-start
+    {
+        margin-top: 60px !important;
+    }
+
+    .button_navigation {
+        font-size: 25px;
+        padding: 4px;
+        width: 35px;
+    }
+    
+    /* MAP */
+    #mapid
+    {
+        height: 200px !important;
+        width: 300px !important;
+    }
+
+    /* INFOS STATION */   
+    .infos-station
+    {
+        font-size: 15px;
+        line-height: 45px;
+        padding: 30px;
+        width: 240px;
+    }
+
+    .infos-station:hover
+    {
+        font-size: 17px;
+        width: 250px !important;
+    }
+
+    .station-selectionnee
+    {
+        font-size: 17px;
+    }
+
+    .infos-station .infos-client input
+    {
+        font-size: 16px;
+        width: 150px !important;
+    }
+
+    .station-selectionnee
+    {
+        font-size: 13px;
+        line-height: 17px;
+        margin: 10px;
+        margin-top: 13px;
+    }
+
+    .velo-station
+    {
+        line-height: 18px;
+        margin-top: 12px;
+    }
+
+    .infos-client
+    {
+        margin: 10px;
+        margin: auto;
+        width: auto;
+    }
+
+    .resa-bouton p
+    {
+        font-size: 20px;
+        height: 40px;
+        margin-top: 20px;
+        width: 170px;
+    }
+
+    .infos-reservation
+    {
+        width: 300px;
+    }
+
+    /* CANVA */
+    .signature
+    {
+        width: 300px;
+    }
+
+    /* ERRORMESSAGE */
+    
+    .no-reservation
+    {
+        width: 200px;
+    }
+
+    .errorMessage
+    {
+        width: 250px;
+    }
+}
+

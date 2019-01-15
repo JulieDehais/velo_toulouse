@@ -1,4 +1,3 @@
-
 // INTEGRATION DE LA MAP
 
 var mymap = L.map('mapid').setView([43.602475, 1.440643], 14);
@@ -58,13 +57,63 @@ $.ajax({
     url: "https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=5786200020fe0183f85fdeeab23cd5f866b1bb4d",
     dataType: 'json',
     success: function(data){
-        $(data).each(function(index, value){
-            
-markers.addLayer(L.marker(value.position, {icon: value.status == 'OPEN' && value.available_bikes > 0 ? greenIcon : redIcon, value}).bindPopup(`Station Vélô ${this.name}`).openPopup().on("click", () => {
+        $(data).each(function(index, value){    
+    markers.addLayer(L.marker(value.position, {icon: value.status == 'OPEN' && value.available_bikes > 0 ? greenIcon : redIcon, value}).bindPopup(`Station Vélô ${this.name}`).openPopup().on("click", () => {
     infoCurrentStation(this) 
     console.log(this)})
     );
-             
         })
     } 
 });
+
+// STOCKAGE DES INFOS (UTILISATEURS & STATION) + OUVERTURE CANVAS SIGNATURE
+
+document.getElementsByClassName("signature")[0].style.display = "none";
+document.getElementsByClassName("errorMessage")[0].style.display = "none";
+
+$(".reserver").click(function() {
+    var nameStation = $(".nom-station").text()
+    var userFirstName = $(".userFirstName").val()
+    var userLastName = $(".userLastName").val()
+    console.log(nameStation, userFirstName, userLastName);
+
+    if (nameStation !== "Aucune station sélectionnée" & userFirstName !== "" & userLastName !== "") {
+        $(".signature").css("display", "block");
+        $(".errorMessage").css("display", "none");
+        $('html, body').animate({
+        scrollTop: $('.reserver').offset().top
+        }, 1000);
+    
+        sessionStorage.setItem('stationName', nameStation);
+        localStorage.setItem('userFirstName', userFirstName);
+        localStorage.setItem('userLastName', userLastName);
+        console.log(sessionStorage, localStorage);
+    }
+    else {
+        $(".errorMessage").css("display", "block");
+        $('html, body').animate({
+            scrollTop: $('.reserver').offset().top
+            }, 1000);
+    }
+});	
+
+// RESTITUTION DES INFOS CONCERNANT LA RESERVATION 
+
+document.getElementsByClassName("infos-reservation")[0].style.display = "none";
+
+$("#signature-validation").click(function() {
+    $(".infos-reservation").css("display", "block");
+    $(".no-reservation").css("display", "none");
+
+    var userFirstNameStored = localStorage.getItem('userFirstName');
+    var userLastNameStored = localStorage.getItem ('userLastName');
+    var nameStationStored = sessionStorage.getItem('stationName');
+    console.log(userFirstNameStored, userLastNameStored, nameStationStored);
+     
+    $(".stationBooked").text(nameStationStored);
+    $(".userName").text(userFirstNameStored + " " + userLastNameStored);
+    $('html, body').animate({
+        scrollTop: $('#signature-validation').offset().top
+        }, 1000);
+});
+

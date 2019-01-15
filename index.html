@@ -69,20 +69,44 @@
 		<!-- CARTE -->
 		<div id="mapid"></div>
 
+		<!-- LEGENDE CARTE -->
+		<div class="allLegend">
+			<div class="legendeCarte">
+				<div class="legendeGreenMarker">
+					<img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png">
+							Station ouverte avec vélos disponibles
+					</div>
+					<div class="legendeRedMarker">
+						<img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png">
+						Station fermée ou aucun vélo disponible
+					</div>
+				</div>
+				<div class="logoLegende">
+					<i class="fas fa-question"></i>
+				</div>
+		</div>
+		
+
 		<!-- INFORMATIONS STATION SELECTIONNEE -->
 		<div class="infos-station">
 			<div class="titre-infos-station">Détails de la station</div>
 			<div class="propriete-station"><i class="fas fa-lock"></i> Statut<div class="station-selectionnee statut-station">Aucune station sélectionnée</div></div>
 			<div class="propriete-station"><i class="fas fa-search"></i> Nom <div class="station-selectionnee nom-station">Aucune station sélectionnée</div></div>
 			<div class="propriete-station"><i class="fas fa-map-marked-alt"></i> Adresse <div class="station-selectionnee adresse-station">Aucune station sélectionnée</div></div>
-			<div class="propriete-station"><i class="fas fa-bicycle"></i> Vélos disponibles <div class="station-selectionnee velos-station">Aucune station sélectionnée</div></div>
+			<div class="propriete-station"><i class="fas fa-bicycle"></i> <span class="velo-station"> Vélos disponibles </span> <div class="station-selectionnee velos-station">Aucune station sélectionnée</div></div>
 			<div class="infos-client">
-				<input type="text" placeholder="Votre prénom">
-				<input type="text" placeholder="Votre nom">
+				<input type="text" placeholder="Votre prénom" class="userFirstName" value=""/>
+				<input type="text" placeholder="Votre nom" class="userLastName" value=""/>
 			</div>
 		</div>
 		<div class="resa-bouton">
-			<a href="" class="reserver"> Réserver</a>
+			<p class="reserver"> Réserver</p>
+		</div>
+
+		<!-- RESERVER STATION > MESSAGE ERREUR -->
+		<div class="errorMessage">
+			<i class="fas fa-exclamation-triangle"></i> 
+			<p>Merci de sélectionner une station et de rentrer votre nom !</p>
 		</div>
 
 		<!-- SIGNATURE PAD (CANVA) -->
@@ -96,12 +120,24 @@
 
 		<!-- INFORMATIONS RESERVATION EFFECTUEE -->
 		<h3><div class="numerotation">3</div><div class="etape">Je vérifie les informations ci -dessous :</div></h3>
-		
+		<div class="no-reservation">
+			Aucune reservation en cours
+		</div>
+		<div class="infos-reservation">
+			<div class="station-reservee">
+				<i class="fas fa-check-circle"></i> Vélo réservé à la station :<p class="stationBooked"> </p> <span class="par"> par </span> <p class="userName"> </p>
+			</div>
+			<div class="temps-restant">
+				<i class="fas fa-clock"></i> Temps restant : <p class="timer"></p>
+			</div>
+			<p class="remerciements"> Merci d'avoir utilisé Vélô, à bientôt !</p>
+		</div>
+
 		<!-- JAVASCRIPT -->
 		<script src="js/lib/leaflet.markercluster.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="js/ajax.js"></script>
-		<script src="js/carousel.js" ></script>
+		<script src="js/carousel.js"></script>
 		<script src="js/index.js"></script>
 		<script src="js/map.js"></script>
 		<script src="js/canva.js"></script>			
