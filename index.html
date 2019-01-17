@@ -95,8 +95,8 @@
 			<div class="propriete-station"><i class="fas fa-map-marked-alt"></i> Adresse <div class="station-selectionnee adresse-station">Aucune station sélectionnée</div></div>
 			<div class="propriete-station"><i class="fas fa-bicycle"></i> <span class="velo-station"> Vélos disponibles </span> <div class="station-selectionnee velos-station">Aucune station sélectionnée</div></div>
 			<div class="infos-client">
-				<input type="text" placeholder="Votre prénom" class="userFirstName" value=""/>
-				<input type="text" placeholder="Votre nom" class="userLastName" value=""/>
+				<input type="text" placeholder="Votre prénom" class="userFirstName" id="userFirstName" value=""/>
+				<input type="text" placeholder="Votre nom" class="userLastName" id="userLastName" value=""/>
 			</div>
 		</div>
 		<div class="resa-bouton">
@@ -106,7 +106,7 @@
 		<!-- RESERVER STATION > MESSAGE ERREUR -->
 		<div class="errorMessage">
 			<i class="fas fa-exclamation-triangle"></i> 
-			<p>Merci de sélectionner une station et de rentrer votre nom !</p>
+			<p>Merci de sélectionner une station avec des vélos disponibles et de rentrer votre nom !</p>
 		</div>
 
 		<!-- SIGNATURE PAD (CANVA) -->
@@ -116,6 +116,9 @@
 			<input type="reset" id="reset" value="Réinitialiser"/>
 		</br>
 			<input type="button" id="signature-validation" value="Valider"/>
+			<div class="messageCurrentReservation">
+				Vous avez déjà effectué une réservation. Veuillez l'annuler afin d'en effectuer une nouvelle.
+			</div>
 		</div>
 
 		<!-- INFORMATIONS RESERVATION EFFECTUEE -->
@@ -123,14 +126,23 @@
 		<div class="no-reservation">
 			Aucune reservation en cours
 		</div>
+		<div class="messageAnnulation">
+			Votre réservation a été annulée.
+		</div>
 		<div class="infos-reservation">
+			<div class="titreReservation">
+				Détails de la réservation en cours
+			</div>
 			<div class="station-reservee">
 				<i class="fas fa-check-circle"></i> Vélo réservé à la station :<p class="stationBooked"> </p> <span class="par"> par </span> <p class="userName"> </p>
 			</div>
 			<div class="temps-restant">
-				<i class="fas fa-clock"></i> Temps restant : <p class="timer"></p>
+				<i class="fas fa-clock"></i> Temps restant : <span class="timer"></span>
 			</div>
 			<p class="remerciements"> Merci d'avoir utilisé Vélô, à bientôt !</p>
+		</div>
+		<div class="stopReservation">
+			Annuler la réservation
 		</div>
 
 		<!-- JAVASCRIPT -->

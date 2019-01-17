@@ -250,7 +250,7 @@ h3
     padding-bottom: 5px;
     padding-top: 8px;
     text-align: center;
-    width: 30px;
+    width: 33px;
 }
 
 .allLegend
@@ -421,6 +421,28 @@ h3
     width: 90px;
 }
 
+.messageCurrentReservation
+{
+    margin: auto;
+    padding: 8px;
+    width: 330px;
+}
+
+/* ---------------------------- ANNULATION RESERVATION -----------------------------------*/
+
+.messageAnnulation
+{
+    background-color: #564c64b9;
+    box-shadow: 2px 2px 6px grey;
+    color: white;
+    font-size: 19px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 25px;
+    text-align: center;
+    width: 380px;
+}
+
 /* --------------------------- INFORMATIONS DE LA RESERVATION EFFECTUEE ----------------------------------- */
 
 .infos-reservation, .no-reservation
@@ -430,13 +452,14 @@ h3
     color: white;
     font-size: 20px;
     margin: auto;
-    margin-bottom: 200px;
+    margin-bottom: 40px;
     padding: 40px;
     width: 400px;
 }
 
 .no-reservation
 {
+    margin-bottom: 200px;
     text-align: center;
 }
 
@@ -471,6 +494,19 @@ h3
     position: absolute;
     margin-top: -30px;
     margin-left: 80px;
+}
+
+.stopReservation
+{
+    background-color: #312642d2;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 200px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
 }
 
 /* ------------------------------------ MEDIA QUERIES --------------------------------------------- */

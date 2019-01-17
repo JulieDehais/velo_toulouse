@@ -29,6 +29,11 @@ function infoCurrentStation(x) {
     nbvelos.text(x.available_bikes)
 }
 
+function preremplirFormulaire() {
+    $("#userFirstName").val(localStorage.getItem('userFirstName'))
+    $("#userLastName").val(localStorage.getItem('userLastName'))
+}
+
 // INTEGRATION DES MARQUEURS
 
 var markers = L.markerClusterGroup();
@@ -58,12 +63,14 @@ $.ajax({
     dataType: 'json',
     success: function(data){
         $(data).each(function(index, value){    
-    markers.addLayer(L.marker(value.position, {icon: value.status == 'OPEN' && value.available_bikes > 0 ? greenIcon : redIcon, value}).bindPopup(`Station Vélô ${this.name}`).openPopup().on("click", () => {
-    infoCurrentStation(this) 
-    console.log(this)})
-    );
-        })
-    } 
+            markers.addLayer(L.marker(value.position, {icon: value.status == 'OPEN' && value.available_bikes > 0 ? greenIcon : redIcon, value})
+    .bindPopup(`Station Vélô ${this.name}`)
+    .openPopup().on("click", () => {
+        infoCurrentStation(this);
+        preremplirFormulaire();
+    }))
+})}
+    
 });
 
 // STOCKAGE DES INFOS (UTILISATEURS & STATION) + OUVERTURE CANVAS SIGNATURE
@@ -75,9 +82,10 @@ $(".reserver").click(function() {
     var nameStation = $(".nom-station").text()
     var userFirstName = $(".userFirstName").val()
     var userLastName = $(".userLastName").val()
+    var availableBikes = $(".velos-station").text()
     console.log(nameStation, userFirstName, userLastName);
 
-    if (nameStation !== "Aucune station sélectionnée" & userFirstName !== "" & userLastName !== "") {
+    if (availableBikes !== "0" && nameStation !== "Aucune station sélectionnée" && userFirstName !== "" && userLastName !== "") {
         $(".signature").css("display", "block");
         $(".errorMessage").css("display", "none");
         $('html, body').animate({
@@ -97,23 +105,76 @@ $(".reserver").click(function() {
     }
 });	
 
-// RESTITUTION DES INFOS CONCERNANT LA RESERVATION 
+// RESTITUTION DES INFOS CONCERNANT LA RESERVATION + TIMER
 
 document.getElementsByClassName("infos-reservation")[0].style.display = "none";
+document.getElementsByClassName("stopReservation")[0].style.display = "none";
+document.getElementsByClassName("messageCurrentReservation")[0].style.display = "none";
+document.getElementsByClassName("messageAnnulation")[0].style.display = "none";
+
+var signature = false
+
+$('canvas').mousedown(function() {
+    signature = true;
+});
 
 $("#signature-validation").click(function() {
-    $(".infos-reservation").css("display", "block");
-    $(".no-reservation").css("display", "none");
-
-    var userFirstNameStored = localStorage.getItem('userFirstName');
-    var userLastNameStored = localStorage.getItem ('userLastName');
-    var nameStationStored = sessionStorage.getItem('stationName');
-    console.log(userFirstNameStored, userLastNameStored, nameStationStored);
+    if ($('.timer').text() === "" && signature == true) {
+        $(".infos-reservation").css("display", "block");
+        $(".no-reservation").css("display", "none");
+        $(".stopReservation").css("display", "block");
+        $(".messageCurrentReservation").css("display", "none");
+    
+        var userFirstNameStored = localStorage.getItem('userFirstName');
+        var userLastNameStored = localStorage.getItem ('userLastName');
+        var nameStationStored = sessionStorage.getItem('stationName');
+        console.log(userFirstNameStored, userLastNameStored, nameStationStored);
+        
+        $(".stationBooked").text(nameStationStored);
+        $(".userName").text(userFirstNameStored + " " + userLastNameStored);
+        $('html, body').animate({
+            scrollTop: $('#signature-validation').offset().top
+            }, 1000);
+    
+        var min = 20, sec = 00;
+        var time = (min*60+sec); // 20*60 + 0 -> nombre de secondes (1200)
      
-    $(".stationBooked").text(nameStationStored);
-    $(".userName").text(userFirstNameStored + " " + userLastNameStored);
-    $('html, body').animate({
-        scrollTop: $('#signature-validation').offset().top
-        }, 1000);
-});
+        var chrono = setInterval(function (){
+         min = Math.floor(time/60); // secondes/60 -> minutes
+         sec = Math.floor((time-min*60)); // on remet les minutes en sec -> les enlever à 'time'
+         time--; // -1sec toutes les 1000ms
+         $('.timer').text(min+':'+sec);
+         
+        if (time == 0) {
+            clearInterval(chrono);
+            sessionStorage.removeItem('stationName');
+            console.log(sessionStorage, localStorage);
+            $('.infos-reservation').css("display", "none");
+            $('.messageAnnulation').css("display", "block");
+        }
+    
+        },1000);
+    
+        $(".stopReservation").click(function() {
+            clearInterval(chrono);
+            $('.timer').text("");
+            sessionStorage.removeItem('stationName')
+            console.log(sessionStorage, localStorage);
+            $('.infos-reservation').css("display", "none");
+            $('.messageAnnulation').css("display", "block");
+            $(".messageCurrentReservation").css("display", "none");
+            $(".signature").css("display", "none");
+        }
+    )}
+
+    else if ($('.timer').text() !== "") {
+        $(".messageCurrentReservation").css("display", "block");
+    }
+
+    else if ($('.messageAnnulation').css('display') === 'block') {
+        $('.infos-reservation').css("display", "block");
+        //$('.messageAnnulation').css("display", "none");
+    }
+
+   });
 
