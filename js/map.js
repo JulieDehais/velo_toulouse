@@ -136,13 +136,14 @@ $("#signature-validation").click(function() {
             scrollTop: $('#signature-validation').offset().top
             }, 1000);
     
-        var min = 20, sec = 00;
+        var min = 1, sec = 00;
         var time = (min*60+sec); // 20*60 + 0 -> nombre de secondes (1200)
      
         var chrono = setInterval(function (){
          min = Math.floor(time/60); // secondes/60 -> minutes
          sec = Math.floor((time-min*60)); // on remet les minutes en sec -> les enlever à 'time'
          time--; // -1sec toutes les 1000ms
+         sessionStorage.setItem('timer', time);
          $('.timer').text(min+':'+sec);
          
         if (time == 0) {
