@@ -38,7 +38,7 @@ class Carousel {
       });
     }
   
-    startCarousel(){
+    startCarousel() {
       clearInterval(this.intervalID);
       this.intervalID = setInterval(() => {
         this.renderNextImage();

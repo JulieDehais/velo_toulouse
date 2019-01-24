@@ -10,4 +10,11 @@ $('.start_button').click(function moveBlock(){
 const carousel = new Carousel();
 carousel.startCarousel();
 
+// CANVAS :
+const canva = new Canvas();
+
 // MAP :
+const map = new Map();
+
+// RESA : 
+const resa = new Resa();
