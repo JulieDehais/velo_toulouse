@@ -538,12 +538,12 @@ h3
     }
 
     /* CAROUSEL */
-        .carousel_img
+    
+    .carousel_img
     {
-        margin: auto !important;
-        width: 400px !important;
+        position: relative;
+        left: 130px !important;
     }
-
     .carousel_img img
     {
         width: 530px !important;
@@ -605,6 +605,8 @@ h3
 
     .etape
     {
+        line-height: 17px;
+        margin-right: 3px;
         padding: 4px 20px 4px 70px;
     }
 
@@ -613,12 +615,22 @@ h3
         font-size: 16px;
     }
 
+    h3 .numerotation
+    {
+        margin-left: 3px !important;
+    }
+
     /* CAROUSEL */
     
+    .carousel_img
+    {
+        position: relative;
+        left: -48px !important;
+        width: 10px;
+    }
     .carousel_img img
     {
-        margin-left: 75% !important;
-        width: 220px !important;
+        width: 230px !important;
     }
 
     .carousel_navigation
@@ -703,7 +715,14 @@ h3
 
     .infos-reservation
     {
-        width: 300px;
+        font-size: 14px;
+        width: 150px !important;
+    }
+
+    .messageAnnulation
+    {
+        font-size: 12px;
+        width: 150px !important;
     }
 
     /* CANVA */

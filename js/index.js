@@ -1,4 +1,4 @@
-// BOUTON "COMMENCER L'EXPERIENCE" :
+// STARTBUTTON : 
 $('.start_button').click(function moveBlock(){
     $('html, body').animate({
         scrollTop: $('h2').offset().top

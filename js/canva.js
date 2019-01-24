@@ -34,8 +34,8 @@ class Canvas {
         this.cursorY = e.pageY - this.canvas[0].offsetTop;
         this.drawLine();
       }
-    });
-
+		});
+		
     // Bouton Reset :
     $("#reset").click(() => {
       this.resetCanvas(); // Clear canvas
