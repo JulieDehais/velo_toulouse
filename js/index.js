@@ -11,13 +11,13 @@ const carousel = new Carousel();
 carousel.startCarousel();
 
 // CANVAS :
-const canva = new Canvas();
+new Canvas();
 
 // MAP :
-const map = new Map();
+new Map();
 
 // STOCKAGE DES INFOS :
-const stockInfos = new Stockinfos();
+new Stockinfos();
 
 // RESA : 
-const resa = new Resa();
+new Resa();

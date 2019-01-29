@@ -14,24 +14,28 @@ class Resa {
     }
    
     eventHandlers() {
-        $('canvas').mousedown(() => (this.signature = true));
-        $("#signature-validation").click(() => this.startResa());
+        const dateNow = Math.ceil(new Date().getTime()  / 1000)
+
+        if ((1200 - (dateNow * 1000 - sessionStorage.getItem('date')) / 1000) > 0 ) {
+            this.signature = true
+            this.startResa()   
+        }
+            $('canvas').mousedown(() => (this.signature = true));
+            $("#signature-validation").click(() => this.startResa());
     }
 
     timer() {
-        
-        this.dateNow = new Date();
         let chrono = setInterval(() => {
-        
-        let time = 1200 - (this.getDate().getTime() - sessionStorage.getItem('date')) / 1000;
-        let min = Math.floor(time/60); // secondes/60 -> minutes
-        let sec = Math.floor((time-min*60)); // on remet les minutes en sec -> les enlever à 'time'
-        //  time--; // -1sec toutes les 1000ms
+        const dateNow = Math.ceil(new Date().getTime()  / 1000)
+        const time = 1200 - (dateNow * 1000 - sessionStorage.getItem('date')) / 1000;
+        const min = Math.floor(time/60); // secondes/60 -> minutes
+        const sec = Math.floor((time-min*60)); // on remet les minutes en sec -> les enlever à 'time'
          sessionStorage.setItem('timer', time);
          $('.timer').text(min+':'+sec);
          
         if (time == 0) {
             clearInterval(chrono);
+            sessionStorage.removeItem('date');
             sessionStorage.removeItem('stationName');
             console.log(sessionStorage, localStorage);
             $('.infos-reservation').css("display", "none");
@@ -39,6 +43,19 @@ class Resa {
         }
     
         },1000);
+
+        $(".stopReservation").click(function() {
+            clearInterval(chrono);
+            $('.timer').text("");
+            sessionStorage.removeItem('date')
+            sessionStorage.removeItem('stationName')
+            console.log(sessionStorage, localStorage);
+            $('.infos-reservation').css("display", "none");
+            $('.messageAnnulation').css("display", "block");
+            $(".messageCurrentReservation").css("display", "none");
+            $(".signature").css("display", "none");
+        }
+    )
     }
 
     // VALIDATION SIGNATURE + RESTITUTION RESA + CHRONO
@@ -61,23 +78,15 @@ class Resa {
                 scrollTop: $('#signature-validation').offset().top
                 }, 1000);
         
-            const date = new Date();
-            sessionStorage.setItem('date', date.getTime());
-
-            this.timer();
-           
-        
-            $(".stopReservation").click(function() {
-                clearInterval(chrono);
-                $('.timer').text("");
-                sessionStorage.removeItem('stationName')
-                console.log(sessionStorage, localStorage);
-                $('.infos-reservation').css("display", "none");
-                $('.messageAnnulation').css("display", "block");
-                $(".messageCurrentReservation").css("display", "none");
-                $(".signature").css("display", "none");
+            
+            if (sessionStorage.getItem('date') == null) {
+                const date = new Date();
+                sessionStorage.setItem('date', date.getTime());
             }
-        )}
+            
+            this.timer(); 
+        
+            }
     
         else if ($('.timer').text() !== "") {
             $(".messageCurrentReservation").css("display", "block");

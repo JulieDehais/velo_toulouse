@@ -52,7 +52,7 @@ class Map {
     }
 
     mapSuccess(data) {
-        $(data).each((index, value) => this.addMarkerInfo(value))}
+        data.forEach((value) => this.addMarkerInfo(value))}
 
     addMarkerInfo(value) {
         this.markers.addLayer(L.marker(value.position, {icon: value.status == 'OPEN' && value.available_bikes > 0 ? this.greenIcon : this.redIcon, value})
