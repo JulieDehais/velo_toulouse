@@ -6,7 +6,7 @@ $('.start_button').click(function moveBlock(){
     console.log('scroll')
 })
 
-// CARROUSEL :
+// CAROUSEL :
 const carousel = new Carousel();
 carousel.startCarousel();
 
@@ -15,6 +15,9 @@ const canva = new Canvas();
 
 // MAP :
 const map = new Map();
+
+// STOCKAGE DES INFOS :
+const stockInfos = new Stockinfos();
 
 // RESA : 
 const resa = new Resa();

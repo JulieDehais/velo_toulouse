@@ -66,17 +66,17 @@ class Map {
     // METHODE INTEGRATION INFOS STATIONS
     infoCurrentStation(x) {
         if (x.status == 'OPEN') {
-            var status = $('.statut-station')
+            const status = $('.statut-station')
             status.text('STATION OUVERTE')
         }
         else {
             status.text('STATION FERMEE')
         }
-        var name = $('.nom-station')
+        const name = $('.nom-station')
         name.text(x.name)
-        var address = $('.adresse-station')
+        const address = $('.adresse-station')
         address.text(x.address)
-        var nbvelos = $('.velos-station')
+        const nbvelos = $('.velos-station')
         nbvelos.text(x.available_bikes)
     }
 
@@ -86,33 +86,4 @@ class Map {
     }
 }
 
-// STOCKAGE DES INFOS (UTILISATEURS & STATION) + OUVERTURE CANVAS SIGNATURE
-document.getElementsByClassName("signature")[0].style.display = "none";
-document.getElementsByClassName("errorMessage")[0].style.display = "none";
 
-$(".reserver").click(function() {
-    var nameStation = $(".nom-station").text()
-    var userFirstName = $(".userFirstName").val()
-    var userLastName = $(".userLastName").val()
-    var availableBikes = $(".velos-station").text()
-    console.log(nameStation, userFirstName, userLastName);
-
-    if (availableBikes !== "0" && nameStation !== "Aucune station sélectionnée" && userFirstName !== "" && userLastName !== "") {
-        $(".signature").css("display", "block");
-        $(".errorMessage").css("display", "none");
-        $('html, body').animate({
-        scrollTop: $('.reserver').offset().top
-        }, 1000);
-    
-        sessionStorage.setItem('stationName', nameStation);
-        localStorage.setItem('userFirstName', userFirstName);
-        localStorage.setItem('userLastName', userLastName);
-        console.log(sessionStorage, localStorage);
-    }
-    else {
-        $(".errorMessage").css("display", "block");
-        $('html, body').animate({
-            scrollTop: $('.reserver').offset().top
-            }, 1000);
-    }
-});	
