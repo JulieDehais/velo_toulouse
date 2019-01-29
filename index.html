@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<title>Vélô : location de vélos à Toulouse</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -37,34 +37,35 @@
             <div class="start_button"> Commencer l'expérience </div>
 		</div>
 		<h2>Bienvenue sur le site de location de vélo dans la belle ville de Toulouse</h2>
-		<h3><div class="numerotation">1</div><div class="etape">Vélô : Comment ça marche ?</div></h3>
+		<h3><span class="numerotation">1</span><span class="etape">Vélô : Comment ça marche ?</span></h3>
 		
 		<!-- CARROUSEL -->
 		<div class="carousel">
 			<div class="carousel_img">
 				<ul>
-					<li><img src="images/exlpication_reservation_velo_toulouse_slide_1.jpg"></li>
-					<li><img src="images/exlpication_reservation_velo_toulouse_slide_2.jpg"></li>
-					<li><img src="images/exlpication_reservation_velo_toulouse_slide_3.jpg"></li>
-					<li><img src="images/exlpication_reservation_velo_toulouse_slide_4.jpg"></li>
-					<li><img src="images/exlpication_reservation_velo_toulouse_slide_5.jpg"></li>
-					<li><img src="images/exlpication_reservation_velo_toulouse_slide_6.jpg"></li>					
+					<li><img src="images/exlpication_reservation_velo_toulouse_slide_1.jpg" alt="slide1"></li>
+					<li><img src="images/exlpication_reservation_velo_toulouse_slide_2.jpg" alt="slide2"></li>
+					<li><img src="images/exlpication_reservation_velo_toulouse_slide_3.jpg" alt="slide3"></li>
+					<li><img src="images/exlpication_reservation_velo_toulouse_slide_4.jpg" alt="slide4"></li>
 				</ul>
 			</div>
-			<div class="carousel_navigation">
-				<div class="prev">
-					<button class="button_navigation  nav-left"><i class="fa fa-angle-left"></i></button>
+			<div class="carousel_control">
+				<div class="carousel_navigation">
+					<div class="prev">
+						<button class="button_navigation  nav-left"><i class="fa fa-angle-left"></i></button>
+					</div>
+					<div class="next">
+						<button class="button_navigation  nav-right"><i class="fa fa-angle-right"></i></button>
+					</div>
 				</div>
-				<div class="next">
-					<button class="button_navigation  nav-right"><i class="fa fa-angle-right"></i></button>
+				<div class="pause-start">
+					<i class="fas fa-play-circle"></i>
+					<i class="fas fa-pause-circle"></i>
 				</div>
 			</div>
-			<div class="pause-start">
-				<i class="fas fa-play-circle"></i>
-				<i class="fas fa-pause-circle"></i>
-			</div>
+			
 		</div>
-		<h3 class="deux"><div class="numerotation">2</div><div class="etape">C'est parti, je réserve un vélo !</div></h3>
+		<h3 class="deux"><span class="numerotation">2</span><span class="etape">C'est parti, je réserve un vélo !</span></h3>
 		
 		<!-- CARTE -->
 		<div id="mapid"></div>
@@ -73,11 +74,11 @@
 		<div class="allLegend">
 			<div class="legendeCarte">
 				<div class="legendeGreenMarker">
-					<img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png">
+					<img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" alt="greenMarker">
 							Station ouverte avec vélos disponibles
 					</div>
 					<div class="legendeRedMarker">
-						<img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png">
+						<img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" alt="redMarker">
 						Station fermée ou aucun vélo disponible
 					</div>
 				</div>
@@ -114,7 +115,7 @@
 			<h4>Signature <i class="fas fa-pencil-alt"></i></h4>
 			<canvas id="canvas" width="200" height="100"></canvas>
 			<input type="reset" id="reset" value="Réinitialiser"/>
-		</br>
+		<br/>
 			<input type="button" id="signature-validation" value="Valider"/>
 			<div class="messageCurrentReservation">
 				Vous avez déjà effectué une réservation. Veuillez l'annuler afin d'en effectuer une nouvelle.
@@ -122,7 +123,7 @@
 		</div>
 
 		<!-- INFORMATIONS RESERVATION EFFECTUEE -->
-		<h3><div class="numerotation">3</div><div class="etape">Je vérifie les informations ci -dessous :</div></h3>
+		<h3><span class="numerotation">3</span><span class="etape">Je vérifie les informations ci -dessous :</span></h3>
 		<div class="no-reservation">
 			Aucune reservation en cours
 		</div>
@@ -148,10 +149,11 @@
 		<!-- JAVASCRIPT -->
 		<script src="js/lib/leaflet.markercluster.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="js/ajax.js"></script>
 		<script src="js/carousel.js"></script>
-		<script src="js/index.js"></script>
 		<script src="js/map.js"></script>
-		<script src="js/canva.js"></script>			
+		<script src="js/canva.js"></script>	
+		<script src="js/stockInfos.js"></script>
+		<script src="js/resa.js"></script>	
+		<script src="js/index.js"></script>		
 	</body>
 </html>

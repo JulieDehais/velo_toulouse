@@ -255,21 +255,14 @@ h3
 
 .allLegend
 {
-    margin: auto;
+    margin: 0 auto auto auto;
     width: 250px;
+    transition: all .4s ease-out;
 }
 
 .allLegend:hover
 {
-    animation: movingBlock 4s;
-}
-
-@keyframes movingBlock 
-{
-    0% {margin-top: 0px;}
-    20% {margin-top: 135px;}
-    80% {margin-top: 135px;}
-    100% {margin-top: 0px;}
+    margin-top: 135px;
 }
 
 
@@ -538,12 +531,12 @@ h3
     }
 
     /* CAROUSEL */
-        .carousel_img
+    
+    .carousel_img
     {
-        margin: auto !important;
-        width: 400px !important;
+        position: relative;
+        left: 130px !important;
     }
-
     .carousel_img img
     {
         width: 530px !important;
@@ -563,7 +556,8 @@ h3
         width: 80px;
     }
 
-    .button_navigation {
+    .button_navigation 
+    {
         font-size: 35px;
         padding: 6px;
         width: 50px;
@@ -574,6 +568,28 @@ h3
     {
         height: 300px !important;
         width: 600px !important;
+    }
+
+    /* RESA */
+    .stationBooked
+    {
+        margin-left: 0;
+    }
+    
+    .par
+    {
+        margin-left: 0px;
+    }
+    
+    .userName 
+    {
+        margin-top: -21px;
+        margin-left: 30px;
+    }
+
+    .timer
+    {
+        margin-left: 40%;
     }
 }
 
@@ -605,6 +621,8 @@ h3
 
     .etape
     {
+        line-height: 17px;
+        margin-right: 3px;
         padding: 4px 20px 4px 70px;
     }
 
@@ -613,30 +631,51 @@ h3
         font-size: 16px;
     }
 
+    h3 .numerotation
+    {
+        margin-left: 3px !important;
+    }
+
     /* CAROUSEL */
     
+    .carousel_img
+    {
+        position: relative;
+        left: -48px !important;
+        width: 10px;
+    }
     .carousel_img img
     {
-        margin-left: 75% !important;
-        width: 220px !important;
+        margin: auto !important;
+        margin-left: -4% !important;
+        width: 280px !important;
     }
 
     .carousel_navigation
     {
         margin: auto !important;
-        margin-top: -150px !important;
-        width: 310px !important;
+        width: 140px !important;
     }
 
     .pause-start
     {
-        margin-top: 60px !important;
+        display: flex;
+        justify-content: space-around !important;
+        margin: 0px !important;
+        margin: auto !important;
+        margin-top: -25px !important;
     }
 
-    .button_navigation {
-        font-size: 25px;
-        padding: 4px;
-        width: 35px;
+    .button_navigation 
+    {
+        font-size: 18px;
+        padding: 2px;
+        width: 25px;
+    }
+
+    .button_navigation .nav-left 
+    {
+        margin-right: 100px !important;
     }
     
     /* MAP */
@@ -703,7 +742,14 @@ h3
 
     .infos-reservation
     {
-        width: 300px;
+        font-size: 14px;
+        width: 150px !important;
+    }
+
+    .messageAnnulation
+    {
+        font-size: 12px;
+        width: 150px !important;
     }
 
     /* CANVA */
@@ -713,6 +759,13 @@ h3
     }
 
     /* ERRORMESSAGE */
+
+    .messageCurrentReservation
+    {
+        margin: auto;
+        padding: 8px;
+        width: 230px;
+    }
     
     .no-reservation
     {

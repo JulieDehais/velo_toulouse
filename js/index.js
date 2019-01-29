@@ -1,4 +1,4 @@
-// BOUTON "COMMENCER L'EXPERIENCE" :
+// STARTBUTTON : 
 $('.start_button').click(function moveBlock(){
     $('html, body').animate({
         scrollTop: $('h2').offset().top
@@ -6,8 +6,18 @@ $('.start_button').click(function moveBlock(){
     console.log('scroll')
 })
 
-// CARROUSEL :
+// CAROUSEL :
 const carousel = new Carousel();
 carousel.startCarousel();
 
+// CANVAS :
+new Canvas();
+
 // MAP :
+new Map();
+
+// STOCKAGE DES INFOS :
+new Stockinfos();
+
+// RESA : 
+new Resa();
